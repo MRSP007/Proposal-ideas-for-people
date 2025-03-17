@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Milk & Mocha Proposal 💙</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background-color: #fce4ec;
+            color: #333;
+            margin: 0;
+            padding: 50px;
+            overflow: hidden;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        .container {
+            margin-top: 30px;
+            position: relative;
+        }
+        .btn {
+            font-size: 1.5em;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+            border-radius: 10px;
+        }
+        .yes {
+            background-color: #ff4081;
+            color: white;
+        }
+        .yes:hover {
+            background-color: #e91e63;
+        }
+        .no {
+            background-color: #b0bec5;
+            color: white;
+            position: absolute;
+        }
+        .milk-mocha {
+            width: 200px; /* Adjusted to be smaller */
+            height: auto;
+            margin-top: 20px;
+        }
+        .extra-gifs {
+            display: none;
+            margin-top: 20px;
+        }
+        #message {
+            font-size: 2em;
+            margin-top: 20px;
+            display: none;
+        }
+
+        /* Floating Milk & Mocha GIF Animation */
+        .floating-gif {
+            position: absolute;
+            width: 80px; /* Smaller floating GIF */
+            height: auto;
+            animation: floatUp 3s linear infinite;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) scale(1.5);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Will You Be My Mocha? 🥛🐻‍❄️💘</h1>
+
+    <!-- Main Milk & Mocha GIF -->
+    <img src="love.gif" class="milk-mocha" alt="Milk & Mocha Cute">
+
+    <div class="container">
+        <button class="btn yes" onclick="showMessage()">Yes</button>
+        <button class="btn no" id="noBtn">No</button>
+    </div>
+
+    <h2 id="message">Yaeyyyyyyy!!!! 💖 I love you ∞</h2>
+
+    <!-- Two Extra GIFs (Hidden at first) -->
+    <div class="extra-gifs" id="extraGifs">
+        <img src="milk-mocha.gif" class="milk-mocha" alt="Milk & Mocha Hug">
+        <img src="main.gif" class="milk-mocha" alt="Milk & Mocha Love">
+    </div>
+
+    <script>
+        document.getElementById("noBtn").addEventListener("mouseover", function() {
+            var x = Math.random() * window.innerWidth - 100;
+            var y = Math.random() * window.innerHeight - 50;
+            this.style.left = `${x}px`;
+            this.style.top = `${y}px`;
+        });
+
+        function showMessage() {
+            document.getElementById("message").style.display = "block";
+            document.getElementById("extraGifs").style.display = "block";
+            createFloatingGIFs();
+        }
+
+        function createFloatingGIFs() {
+            for (let i = 0; i < 30; i++) { // Number of floating GIFs
+                let gifContainer = document.createElement("img");
+                gifContainer.src = "float.gif"; // Replace with actual floating GIF
+                gifContainer.classList.add("floating-gif");
+
+                document.body.appendChild(gifContainer);
+
+                // Random positioning
+                gifContainer.style.left = Math.random() * window.innerWidth + "px";
+                gifContainer.style.bottom = "-50px"; // Start from bottom
+
+                // Random animation duration
+                gifContainer.style.animationDuration = (Math.random() * 2 + 2) + "s"; 
+
+                // Remove GIF after animation
+                setTimeout(() => {
+                    gifContainer.remove();
+                }, 3000);
+            }
+        }
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
